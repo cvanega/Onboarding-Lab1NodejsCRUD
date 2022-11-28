@@ -1,0 +1,23 @@
+<html>
+
+    <h1>OK Plantilla para EDITAR REGISTROS:</h1>
+    <% if(user) { %>
+    <form action="/update" method ="POST">
+
+<!--se necesita capturar el ID para usarlo mas adelante-->
+        <input id = "id" name = "id" value = "<%= user.id %> " hidden> 
+
+        <label> Usuario</label>
+        <input id="user" name="user" value = "<%= user.user %> ">
+        <label> Rol</label>
+        <select id="rol" name="rol">
+
+            <!-- condicionales para evaluar cual de los dos posibles valores tiene este campo-->
+            <option <%= user.rol == 'admin' ? "selected" : '' %>  value="admin" >Admin</option>
+            <option <%= user.rol == 'demo onboarding' ? "selected" : '' %>  value="demo onboarding" >Demo Onboarding</option>
+        </select>
+        <button type=submit>Guardar</button>
+        <a href="/">Cancelar</a>
+    </form>
+    <% } %>
+    </html>

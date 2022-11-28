@@ -1,0 +1,38 @@
+<html>
+
+    <h1>index:</h1>
+    <h1>CRUD con NodeJS:</h1>
+    <div class="container">
+        <!--boton nuevo-->
+        <a href="/create">
+            nuevo
+        </a>
+        <table class ="table table-bordered table-striped text-center mt-4">
+            <thead>
+                <!--fila-->
+                <tr>
+                        <th scope="col"> ID</th>
+                        <th scope="col"> USUARIO</th>
+                        <th scope="col"> ROL</th>
+                        <th scope="col"> ACCION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%  results.forEach((user)=> { %> 
+
+                <!--fila-->
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.user %></td>
+                    <td><%= user.rol %></td>
+                    <td>
+                          <!--boton nuevo-->
+                        <a href="/edit/<%= user.id %>">Editar</a>
+                        <a href="/delete/<%= user.id %>">Borrar</a>
+                    </td>
+                </tr>
+           <% }) %>
+            </tbody>
+        </table>
+    </div>
+    </html>
